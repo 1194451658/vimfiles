@@ -31,6 +31,7 @@ nnoremap <C-k> :tabnew %<CR>
 " nerd tree
 let NERDTreeWinSize	= 40
 let NERDTreeQuitOnOpen	= 1
+let NERDTreeIgnore=['\.vim$', '\.meta$', '\~$']
 nnoremap <F9> :NERDTreeToggle<CR>
 
 " tag list
