@@ -17,6 +17,8 @@ set number
 
 set nowrap
 
+set fileencodings=utf-8,cp936
+
 " ËÑË÷ÉèÖÃ
 set ignorecase
 set hlsearch
