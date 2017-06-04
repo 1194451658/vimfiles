@@ -15,10 +15,18 @@ set showcmd
 set ruler
 set number
 
+set nowrap
+
 " À—À˜…Ë÷√
 set ignorecase
 set hlsearch
 set incsearch
+
+nnoremap <C-h> :tabprevious<CR>
+nnoremap <C-l> :tabnext<CR>
+nnoremap <C-j> :tabclose<CR>
+nnoremap <C-k> :tabnew %<CR>
+
 
 " nerd tree
 let NERDTreeWinSize	= 40
