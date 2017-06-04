@@ -6,43 +6,42 @@ execute pathogen#infect()
 
 set guifont=Consolas:h14:w8
 
-set diffexpr=MyDiff()
-function MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      if empty(&shellxquote)
-        let l:shxq_sav = ''
-        set shellxquote&
-      endif
-      let cmd = '"' . $VIMRUNTIME . '\diff"'
-    else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-    endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'
-  endif
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
-  if exists('l:shxq_sav')
-    let &shellxquote=l:shxq_sav
-  endif
-endfunction
-
+" 语法高亮
 syntax enable
 
-set hlsearch
-set ignorecase
-set incsearch
-
+" 通用设置
+set showmode
 set showcmd
 set ruler
 set number
 
+" 搜索设置
+set ignorecase
+set hlsearch
+set incsearch
+
+" nerd tree
+let NERDTreeWinSize	= 40
+let NERDTreeQuitOnOpen	= 1
+nnoremap <F9> :NERDTreeToggle<CR>
+
+" tag list
+let Tlist_Use_Right_Window		= 1
+let Tlist_Exit_Onlywindow		= 1
+let Tlist_Close_On_Select		= 1
+let Tlist_Show_One_File			= 1
+let Tlist_GainFocus_On_ToggleOpen	= 1
+let Tlist_Inc_Winwidth			= 1
+let Tlist_WinWidth			= 40
+" actionscript language
+let tlist_actionscript_settings = 'actionscript;c:class;f:method;p:property;v:variable'
+
+nnoremap <F12> :TlistToggle<CR>
+
+" high light
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
+set cursorline
