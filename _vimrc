@@ -29,6 +29,8 @@ nnoremap <C-l> :tabnext<CR>
 nnoremap <C-j> :tabclose<CR>
 nnoremap <C-k> :tabnew %<CR>
 
+set shiftwidth=4
+set tabstop=4
 
 " nerd tree
 let NERDTreeWinSize	= 40
