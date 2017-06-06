@@ -17,20 +17,24 @@ set number
 
 set nowrap
 
+" 文件格式等
 set fileencodings=utf-8,cp936
+set shiftwidth=4
+set tabstop=4
 
 " 搜索设置
 set ignorecase
 set hlsearch
 set incsearch
 
+" tags更新
+nnoremap <F5> :!ctags -RV --languages=c\#<CR>
+
+" 页签控制
 nnoremap <C-h> :tabprevious<CR>
 nnoremap <C-l> :tabnext<CR>
 nnoremap <C-j> :tabclose<CR>
 nnoremap <C-k> :tabnew %<CR>
-
-set shiftwidth=4
-set tabstop=4
 
 " nerd tree
 let NERDTreeWinSize	= 40
